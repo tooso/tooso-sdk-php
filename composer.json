@@ -3,7 +3,17 @@
     "license": "MIT",
     "type": "library",
     "description": "Tooso PHP SDK",
+    "version": "0.1.0",
     "authors": [
         { "name": "Fabio Gollinucci", "email": "fabio.gollinucci@bitbull.it" }
-    ]
+    ],
+    "require": {
+        "ext-zip": "*",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tooso\\SDK\\": ""
+        }
+    }
 }

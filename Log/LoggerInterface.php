@@ -1,23 +1,20 @@
 <?php
+namespace Tooso\SDK\Log;
+
+use \Tooso\SDK\Exception;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
  */
-interface Bitbull_Tooso_Log_LoggerInterface
+interface LoggerInterface
 {
-    /**
-     * Retrieve Tooso Log File
-     *
-     * @return string
-     */
-    public function getLogFile();
-
     /**
      * Logging facility
      *
      * @param string $message
-     * @param string $level
+     * @param int $level
      */
     public function log($message, $level = null);
 

@@ -1,10 +1,12 @@
 <?php
+namespace Tooso\SDK\Log;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
  */
-interface Bitbull_Tooso_Log_SendInterface
+interface SendInterface
 {
     /**
      * Send report API

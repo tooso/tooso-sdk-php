@@ -1,10 +1,12 @@
 <?php
+namespace Tooso\SDK;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Fabio Gollinucci <fabio.gollinucci@bitbull.it>
  */
-class Bitbull_Tooso_Response
+class Response
 {
     protected $_response = null;
 

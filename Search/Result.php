@@ -1,10 +1,14 @@
 <?php
+namespace Tooso\SDK\Search;
+
+use Tooso\SDK\Response;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
 */
-class Bitbull_Tooso_Search_Result extends Bitbull_Tooso_Response
+class Result extends Response
 {
     const FALLBACK_RESPONSE_TOTAL_TIME = 0;
     const FALLBACK_RESPONSE_TOTAL_RESULTS = 0;
@@ -12,8 +16,10 @@ class Bitbull_Tooso_Search_Result extends Bitbull_Tooso_Response
     const FALLBACK_RESPONSE_FIXED_SEARCH_STRING = "";
     const FALLBACK_RESPONSE_PARENT_SEARCH_ID = null;
 
-    public function __construct(Bitbull_Tooso_Response $response)
+    public function __construct(Response $response)
     {
+        parent::__construct();
+        
         if ($response) {
             $rawResponse = $response->getResponse();
             $this->setResponse($rawResponse);

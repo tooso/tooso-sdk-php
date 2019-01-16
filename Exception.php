@@ -1,10 +1,14 @@
 <?php
+namespace Tooso\SDK;
+
+use \Exception as BaseException;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
 */
-class Bitbull_Tooso_Exception extends Exception
+class Exception extends BaseException
 {
     /**
      * @var string
@@ -12,7 +16,7 @@ class Bitbull_Tooso_Exception extends Exception
     protected $_debugInfo = null;
 
     /**
-     * @var Bitbull_Tooso_Response
+     * @var Response
      */
     protected $_response = null;
 
@@ -26,7 +30,7 @@ class Bitbull_Tooso_Exception extends Exception
         return $this->_debugInfo;
     }
 
-    public function setResponse(Bitbull_Tooso_Response $response)
+    public function setResponse(Response $response)
     {
         $this->_response = $response;
     }

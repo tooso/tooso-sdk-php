@@ -1,10 +1,12 @@
 <?php
+namespace Tooso\SDK\Index;
+
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
  */
-class Bitbull_Tooso_Index_Result
+class Result
 {
     protected $_response = null;
     protected $_code = null;

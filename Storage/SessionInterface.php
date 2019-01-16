@@ -1,11 +1,12 @@
 <?php
+namespace Tooso\SDK\Storage;
 
 /**
  * @category Bitbull
  * @package  Bitbull_Tooso
  * @author   Gennaro Vietri <gennaro.vietri@bitbull.it>
  */
-interface Bitbull_Tooso_Storage_SessionInterface
+interface SessionInterface
 {
     /**
      * Store Search ID into session
