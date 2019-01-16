@@ -1,0 +1,9 @@
+{
+    "name": "tooso/sdk",
+    "license": "MIT",
+    "type": "library",
+    "description": "Tooso PHP SDK",
+    "authors": [
+        { "name": "Fabio Gollinucci", "email": "fabio.gollinucci@bitbull.it" }
+    ]
+}
