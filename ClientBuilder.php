@@ -98,7 +98,7 @@ final class ClientBuilder
      * @param string $version
      * @return ClientBuilder
      */
-    public function withVersion($version)
+    public function withApiVersion($version)
     {
         $this->_version = $version;
         return $this;
@@ -108,7 +108,7 @@ final class ClientBuilder
      * @param string $apiBaseUrl
      * @return ClientBuilder
      */
-    public function withBaseUrl($apiBaseUrl)
+    public function withApiBaseUrl($apiBaseUrl)
     {
         $this->_baseUrl = $apiBaseUrl;
         return $this;
