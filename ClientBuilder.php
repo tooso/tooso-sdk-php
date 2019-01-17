@@ -16,7 +16,7 @@ use \Tooso\SDK\Storage\SessionInterface;
 final class ClientBuilder
 {
     const DEFAULT_VERSION = '3';
-    const DEFAULT_BASE_URL = 'https://api.tooso.ai';
+    const DEFAULT_BASE_URL = 'https://v3dev.api.tooso.ai/';
     const DEFAULT_LANGUAGE = 'en-us';
 
     /**
