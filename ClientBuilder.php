@@ -1,10 +1,8 @@
 <?php
 namespace Tooso\SDK;
 
-use \Tooso\SDK\Index\Result as IndexResult;
 use \Tooso\SDK\Log\LoggerInterface;
 use \Tooso\SDK\Log\SendInterface;
-use \Tooso\SDK\Search\Result as SearchResult;
 use \Tooso\SDK\Storage\SessionInterface;
 
 
