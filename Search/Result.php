@@ -16,7 +16,7 @@ class Result extends Response
     const FALLBACK_RESPONSE_FIXED_SEARCH_STRING = "";
     const FALLBACK_RESPONSE_PARENT_SEARCH_ID = null;
 
-    public function __construct(Response $response)
+    public function __construct(Response $response = null)
     {
         parent::__construct();
         

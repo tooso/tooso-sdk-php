@@ -34,7 +34,7 @@ class Response
 
     public function isValid()
     {
-        return !isset($this->_response->data->error);
+        return $this->_response !== null && isset($this->_response->data) && !isset($this->_response->data->error);
     }
 
     public function getErrorCode()
