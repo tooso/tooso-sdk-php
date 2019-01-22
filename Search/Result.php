@@ -108,4 +108,18 @@ class Result extends Response
         }
     }
 
+    public function isSearchAvailable()
+    {
+        return isset($this->_response->data) && $this->getRedirect() === null;
+    }
+
+    public function isResultEmpty(){
+        if (isset($this->_response->data)) {
+            $products = $this->getResults();
+            return sizeof($products) <= 0;
+        }
+
+        return false;
+    }
+
 }
