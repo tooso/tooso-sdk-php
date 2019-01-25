@@ -1,5 +1,6 @@
 {
-    "name": "tooso/sdk",
+    "name": "bitbull/tooso-sdk",
+    "description": "Tooso SDK for PHP",
     "license": "MIT",
     "type": "library",
     "description": "Tooso PHP SDK",

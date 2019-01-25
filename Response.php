@@ -29,7 +29,7 @@ class Response
 
     public function getObjectId()
     {
-        return $this->_response->metadata->objectId;
+        return $this->_response !== null && isset($this->_response->metadata) ? $this->_response->metadata->objectId : null;
     }
 
     public function isValid()
