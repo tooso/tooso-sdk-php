@@ -19,7 +19,7 @@ class Result extends Response
     public function __construct(Response $response = null)
     {
         parent::__construct();
-        
+
         if ($response) {
             $rawResponse = $response->getResponse();
             $this->setResponse($rawResponse);
@@ -92,7 +92,7 @@ class Result extends Response
 
     public function getRedirect()
     {
-        if($this->isValid()){
+        if($this->isValid() && isset($this->_response->data) && isset($this->_response->data->redirect)){
             return $this->_response->data->redirect;
         }else{
             return null;
