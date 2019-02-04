@@ -156,7 +156,7 @@ class Client implements ClientInterface
         }
 
         try {
-            $response = $this->_doRequest($path, self::HTTP_METHOD_GET, $params);
+            $response = $this->doRequest($path, self::HTTP_METHOD_GET, $params);
             $result = new SearchResult($response);
             if ($this->_sessionStorage) {
                 $searchId = $result->getSearchId();
@@ -312,10 +312,10 @@ class Client implements ClientInterface
      * @param array $params
      * @param string $attachment
      * @param int $timeout
-     * @return stdClass
+     * @return \stdClass
      * @throws Exception
     */
-    protected function _doRequest($path, $httpMethod = self::HTTP_METHOD_GET, $params = array(), $timeout = null)
+    public function doRequest($path, $httpMethod = self::HTTP_METHOD_GET, $params = array(), $timeout = null)
     {
         $url = $this->_buildUrl($path, $params);
 
