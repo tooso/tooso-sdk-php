@@ -6,6 +6,8 @@ use \Tooso\SDK\Log\LoggerInterface;
 use \Tooso\SDK\Log\SendInterface;
 use \Tooso\SDK\Search\Result as SearchResult;
 use \Tooso\SDK\Storage\SessionInterface;
+use \ZipArchive;
+use \CurlFile;
 
 /**
  * @category Bitbull
@@ -192,7 +194,7 @@ class Client implements ClientInterface
         if($this->_logger){
             $this->_logger->debug("Temporary zip file: " . $tmpZipFile);
         }
-        
+
         $zip = new ZipArchive;
         if ($zip->open($tmpZipFile, ZipArchive::CREATE)) {
             $zip->addFromString('magento_catalog.csv', $csvContent);
@@ -353,7 +355,7 @@ class Client implements ClientInterface
         }
 
         if (false === $output) {
-            
+
             if ($this->_reportSender) {
                 $message = 'cURL error = ' . $error . ' - Error number = ' . $errorNumber;
 
