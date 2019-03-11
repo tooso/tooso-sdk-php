@@ -311,13 +311,13 @@ class Client implements ClientInterface
      *
      * @param string $path
      * @param string $httpMethod
-     * @param array $params
-     * @param string $attachment
+     * @param array $params\
      * @param int $timeout
-     * @return \stdClass
+     * @param boolean $ignoreResponse
+     * @return Response
      * @throws Exception
     */
-    public function doRequest($path, $httpMethod = self::HTTP_METHOD_GET, $params = array(), $timeout = null)
+    public function doRequest($path, $httpMethod = self::HTTP_METHOD_GET, $params = array(), $timeout = null, $ignoreResponse = false)
     {
         $url = $this->_buildUrl($path, $params);
 
@@ -351,7 +351,11 @@ class Client implements ClientInterface
         curl_close($ch);
 
         if($this->_logger) {
-            $this->_logger->debug("Raw response: " . print_r($output, true));
+            if ($ignoreResponse === false) {
+                $this->_logger->debug("Raw response: " . print_r($output, true));
+            }else{
+                $this->_logger->debug("Raw response: status code $httpStatusCode");
+            }
         }
 
         if (false === $output) {
@@ -385,7 +389,7 @@ class Client implements ClientInterface
                 $e->setResponse($result);
                 throw $e;
 
-            } else if ($httpStatusCode == 200 && !$result->isValid()) {
+            } else if ($httpStatusCode == 200 && $ignoreResponse === false && !$result->isValid()) {
 
                 if ($this->_reportSender) {
                     $message = 'Error description = ' . $result->getErrorDescription() . "\n"
@@ -437,7 +441,11 @@ class Client implements ClientInterface
             $baseUrl .= '/';
         }
 
-        $url = $baseUrl . 'v'.$this->_version . $path;
+        $url = $baseUrl;
+        if ($this->_version !== null) {
+            $url .= 'v'.$this->_version;
+        }
+        $url .= $path;
 
         $language = $this->_language;
         if($language == null){
