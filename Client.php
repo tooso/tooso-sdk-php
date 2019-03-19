@@ -187,27 +187,34 @@ class Client implements ClientInterface
     /**
      * @inheritdoc
      */
-    public function index($csvContent, $params)
+    public function index($csvContents, $params)
     {
         $tmpZipFile = sys_get_temp_dir() . '/tooso_index_' . microtime() . '.zip';
 
         if($this->_logger){
-            $this->_logger->debug("Temporary zip file: " . $tmpZipFile);
+            $this->_logger->debug('Temporary zip file: ' . $tmpZipFile);
         }
 
         $zip = new ZipArchive;
         if ($zip->open($tmpZipFile, ZipArchive::CREATE)) {
-            $zip->addFromString('magento_catalog.csv', $csvContent);
+            if (is_array($csvContents) === true) {
+                foreach ($csvContents as $filename => $csvContent) {
+                    $zip->addFromString($filename, $csvContent);
+                }
+            } else {
+                $zip->addFromString('magento_catalog.csv', $csvContents);
+            }
+
             $zip->close();
         } else {
             throw new Exception('Error creating zip file for reindex', 0);
         }
 
         if($this->_logger){
-            $this->_logger->debug("Start uploading zipfile");
+            $this->_logger->debug('Start uploading zipfile');
         }
 
-        if(!isset($params["ACCESS_KEY_ID"]) || !isset($params["SECRET_KEY"]) || !isset($params["BUCKET"]) || !isset($params["PATH"])){
+        if(!isset($params['ACCESS_KEY_ID']) || !isset($params['SECRET_KEY']) || !isset($params['BUCKET']) || !isset($params['PATH'])){
             $this->_removeTemporaryFile($tmpZipFile);
             throw new Exception('Index params are not correct', 0);
         }

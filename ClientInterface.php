@@ -38,7 +38,7 @@ interface ClientInterface
     /**
      * Send data to index
      *
-     * @param string $csvContent
+     * @param mixed $csvContent
      * @param array $params
      * @return IndexResult
      * @throws Exception
