@@ -149,6 +149,7 @@ class Client implements ClientInterface
                 'typoCorrection' => ($typoCorrection ? 'true' : 'false'),
                 'page' => $page,
                 'limit' => $limit,
+                'channel' => 'web'
             ),
             (array)$extraParams
         );
